@@ -1,0 +1,60 @@
+*{
+    box-sizing: border-box;
+}
+
+.box-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 15px;
+    max-width: 1024px;
+    margin: auto;
+    align-items: start;
+}
+
+.box{
+    padding: 10px;
+    border: 1px solid #999;
+}
+
+.box-inner{
+    /*
+    --text-lines: 5;
+    --line-height: 1.4;
+    --font-size: 18px;
+
+
+    font-size: var(--font-size);
+    overflow: hidden;
+    line-height: var(--line-height);
+    max-height: calc(var(--font-size) * var(--text-lines) * var(--line-height));
+    */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+
+}
+
+.box:has(.button:checked) .box-inner{
+    /*max-height: none;*/
+    -webkit-line-clamp: unset;
+}
+
+.button{
+    appearance: none;
+    background-color: aqua;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.button:checked{
+    background-color: blueviolet;
+}
+
+.button::before{
+    content: 'Expend';
+}
+
+.button:checked:before{
+    content: 'Collapse';
+}
